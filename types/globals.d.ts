@@ -13,7 +13,7 @@ declare global {
 	
 	interface SheetItem {
 		Date: string;
-		Duration: string;
+		Duration: number;
 		Place: string;
 		Comment: string;
 		Person: string;
