@@ -7,7 +7,7 @@ interface TrainingItemProps {
 
 function TrainingItem({ trainingItem }: TrainingItemProps) {
 	return (
-		<Card className="trainingItem" sx={{ marginBottom: 2 }}>
+		<Card className="trainingItem" sx={{ marginBottom: 2, textAlign: 'left' }}>
 			<CardContent>
 				<p><span>{ trainingItem.Date }</span></p>
 				<p>Practiced for { trainingItem.Duration }min in the { trainingItem.Place }.</p>
