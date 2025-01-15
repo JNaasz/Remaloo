@@ -41,9 +41,13 @@ function TrainingTracker() {
 	}
 
   return (
-		<Box className="content trainnig">
+		<Box className="content trainnig" sx={{ height: '100%' }}>
 			{data && (
-				<div className="training-data">
+				<div className="training-data" style={{
+					height: '100%',
+					display: 'flex',
+					flexDirection: 'column'
+				}}>
 					<Box
 						className="title"
 						sx={{ display: 'flex', alignItem: 'center', justifyContent: 'space-between', pb: 2 }}
@@ -59,7 +63,8 @@ function TrainingTracker() {
 						)}
 					</Box>
 
-					<div className="training-items">
+					{/* TODO: hide scrollbar visibility except when hovering on desktop */}
+					<div className="training-items" style={{ overflow: 'auto' }}>
 						{!logTraining && trainingItems.map((item, index) => (
 							<TrainingItem key={index} trainingItem={item} />
 						))}

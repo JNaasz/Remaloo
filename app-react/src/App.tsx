@@ -14,7 +14,6 @@ function App() {
     setLayoutIndex(newIndex);
   };
 
-  const landingMsg: String = "Well hello there";
   return (
     <Container className="App">
       <Box className="grow" sx={{ p: 3 }}>
@@ -23,13 +22,13 @@ function App() {
         {layouts[layoutIndex] === 'Temp Tab' && <p>Placeholder Content</p>}
       </Box>
 
-      <Box className="fixed" sx={{ p: 5 }}>
+      <div className="fixed" style={{ padding: '0 1rem 1rem 1rem' }}>
         <LayoutTabs
           layouts={layouts}
           layoutIndex={layoutIndex}
           onChange={handleTabChange}
         />
-      </Box>
+      </div>
     </Container>
   );
 }
