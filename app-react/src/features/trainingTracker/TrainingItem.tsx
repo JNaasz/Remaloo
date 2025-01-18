@@ -1,5 +1,5 @@
 import { Card, CardContent } from '@mui/material';
-import { SheetItem } from '../../../types/globals';
+import { SheetItem } from '../../../../types/globals';
 
 interface TrainingItemProps {
 	trainingItem: SheetItem;

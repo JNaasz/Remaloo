@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Box, Typography, Button } from '@mui/material';
 
 import { SheetData, SheetItem } from '../../../types/globals';
-import TrainingItem from '../components/TrainingItem';
-import TrainingForm from '../components/TrainingForm';
+import TrainingItem from '../features/trainingTracker/TrainingItem';
+import TrainingForm from '../features/trainingTracker/TrainingForm';
 
 function TrainingTracker() {
 	const [data, setData] = useState<SheetData | null>(null);

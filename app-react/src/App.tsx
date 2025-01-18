@@ -2,8 +2,8 @@ import './styles/App.scss';
 import { Box, Container } from '@mui/material';
 import React, { useState } from 'react';
 
-import LayoutTabs from './components/LayoutTabs'; // .tsx';
-import TrainingTracker from './layouts/TrainingTracker';
+import LayoutTabs from './layouts/LayoutTabs'; // .tsx';
+import TrainingTracker from './pages/TrainingTracker';
 
 import { useTheme } from '@mui/material/styles';
 

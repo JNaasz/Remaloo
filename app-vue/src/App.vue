@@ -39,7 +39,6 @@ export default {
   text-align: center;
   padding-top: 20px;
   height: 100%;
-
 }
 
 .main > div {

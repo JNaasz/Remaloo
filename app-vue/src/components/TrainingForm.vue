@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { setSheetData } from '../../../common/api/sheets';
-import user from '../../../config/user';
+import user from '../../../common/config/user';
 
 export default {
   name: 'DogForm',
@@ -54,7 +54,7 @@ export default {
 		buildSheetItem(): SheetItem {
 			const sheetItem: SheetItem = {
 				Date: this.formatDate(this.date),
-				Duration: this.duration.toString(),
+				Duration: this.duration,
 				Place: this.place,
 				Comment: this.comment,
 				Person: user,
