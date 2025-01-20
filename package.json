@@ -1,11 +1,12 @@
 {
-  "name": "Remmaloo",
+  "name": "remmaloo",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "workspaces": [
     "app-vue",
-    "app-react"
+    "app-react",
+    "common"
   ],
   "scripts": {
     "start:react": "npm --workspace app-react run start",
