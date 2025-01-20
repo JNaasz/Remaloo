@@ -14,29 +14,22 @@ import { getSheetData } from 'common/src/api/sheets';
 
 function TrainingTracker() {
 	const dispatch: AppDispatch = useDispatch();
-	const [data, setData] = useState<SheetData | null>(null);
 	const [logTraining, setLogTraining] = useState<boolean>(false);
 
-	const storedData = useSelector(
-		(state: RootState) => state.trainingTracker
+	const data = useSelector(
+		(state: RootState) => state.trainingTracker.data
 	);
 
 	useEffect(() => {
 		async function updateData() {
-			if (storedData && !data) {
-				// ensure the cached data get's set to component data
-				console.log('what is this?', storedData);
-				// setData(storedData);
-			} else if (!data) {
-				// if the data was not cached, then fetch it and store to
+			if (!data) {
 				const apiData: SheetData = await getSheetData(null);
 				dispatch(setTrainingData(apiData));
-				setData(apiData);
 			}
 		}
 
 		updateData();
-	}, [storedData, data, dispatch]);
+	});
 
 	const trainingItems: SheetItem[] = data?.sheets[0]?.items || [];
 	 // TODO: update server to sort items by date

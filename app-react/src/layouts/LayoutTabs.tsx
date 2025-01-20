@@ -1,3 +1,4 @@
+import React from 'react';
 import { Tabs, Tab } from '@mui/material';
 
 interface LayoutTabsProps {
