@@ -3,8 +3,14 @@ import { ThunkAction } from 'redux-thunk';
 
 import rootReducer, { RootState } from "./rootReducer";
 
-const store = configureStore({
-	reducer: rootReducer,
+export const store = configureStore({
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      thunk: {
+        extraArgument: undefined, // Explicitly set to `undefined`
+      },
+    }),
 });
 
 if (process.env.NONDE_ENV === 'development' && module.hot) {
@@ -15,6 +21,10 @@ if (process.env.NONDE_ENV === 'development' && module.hot) {
 }
 
 export type AppDispatch = typeof store.dispatch;
-export type AppThunk = ThunkAction<void, RootState, null, Action<string>>;
-
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  undefined,
+  Action<string>
+>;
 export default store;

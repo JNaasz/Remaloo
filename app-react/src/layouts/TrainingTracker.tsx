@@ -1,27 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography, Button } from '@mui/material';
 
-import { SheetData, SheetItem } from '../../../types/globals';
+import { RootState } from '../stores/rootReducer';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch } from '../stores';
+import { setTrainingData } from '../stores/trackerSlice';
+
+import { SheetData, SheetItem } from 'common/src/types/globals';
 import TrainingItem from '../features/trainingTracker/TrainingItem';
 import TrainingForm from '../features/trainingTracker/TrainingForm';
 
+import { getSheetData } from 'common/src/api/sheets';
+
 function TrainingTracker() {
+	const dispatch: AppDispatch = useDispatch();
 	const [data, setData] = useState<SheetData | null>(null);
 	const [logTraining, setLogTraining] = useState<boolean>(false);
 
+	const storedData = useSelector(
+		(state: RootState) => state.trainingTracker
+	);
+
 	useEffect(() => {
-		// when layout loads, fetch data
-		// eventually store this to state so we aren't fetching every time page loads
-		const fetchData = async () => {
-			const response = await fetch('http://localhost:2000/sheet-data');
-			const resJson: SheetData = await response.json();
-			setData(resJson);
+		async function updateData() {
+			if (storedData && !data) {
+				// ensure the cached data get's set to component data
+				console.log('what is this?', storedData);
+				// setData(storedData);
+			} else if (!data) {
+				// if the data was not cached, then fetch it and store to
+				const apiData: SheetData = await getSheetData(null);
+				dispatch(setTrainingData(apiData));
+				setData(apiData);
+			}
 		}
 
-		if (!data) {
-			fetchData();
-		}
-	});
+		updateData();
+	}, [storedData, data, dispatch]);
 
 	const trainingItems: SheetItem[] = data?.sheets[0]?.items || [];
 	 // TODO: update server to sort items by date
