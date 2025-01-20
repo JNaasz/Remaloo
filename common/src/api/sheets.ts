@@ -1,10 +1,10 @@
-import type { SheetData } from '../../types/globals';
+import { SheetData } from '../types/globals';
 const baseURL = 'http://localhost:2000';
 // const baseURL = 'https://jensthing.schwaasz.com/sheet-data';
 
 /**
  * sends a request to the server to fetch sheet data
- * @param {string | null} sheetRange 
+ * @param {string | null} sheetRange
  * @returns {SheetData}
  */
 export async function getSheetData(sheetRange: string | null): Promise<SheetData> {
