@@ -23,13 +23,13 @@ function App() {
       className="App"
       sx={{ backgroundColor: (theme) => theme.palette.background.default }}
     >
-      <Box className="grow" sx={{ p: 3, overflow: 'hidden' }}>
+      <Box className="grow" sx={{ overflow: 'hidden' }}>
         {layouts[layoutIndex] === 'Home' && <TrainingTracker />}
 
         {layouts[layoutIndex] === 'Temp Tab' && <p>Placeholder Content</p>}
       </Box>
 
-      <Box className="fixed" sx={{ p: 4, pt: 0, display: 'flex', justifyContent: 'center' }}>
+      <Box className="fixed" sx={{ display: 'flex', justifyContent: 'center' }}>
         <LayoutTabs
           layouts={layouts}
           layoutIndex={layoutIndex}

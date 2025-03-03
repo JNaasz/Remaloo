@@ -58,7 +58,7 @@ function TrainingTracker() {
 				}}>
 					<Box
 						className="title"
-						sx={{ display: 'flex', alignItem: 'center', justifyContent: 'space-between', pb: 2 }}
+						sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', pb: 2 }}
 					>
 						{!lastTraining ? (
 							<Typography>No training logged yet.</Typography>

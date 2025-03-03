@@ -4,7 +4,6 @@ html, body, #root {
 
 html {
   display: flex;
-  justify-content: center;
 }
 
 body {
@@ -21,7 +20,6 @@ body {
   flex-grow: 1;
   border-left: 1px solid #6200ea;
   border-right: 1px solid #6200ea;
-  text-align: center;
 }
 
 code {
