@@ -15,8 +15,8 @@
 </template>
 
 <script lang="ts">
-import { setSheetData } from '../../../common/api/sheets';
-import user from '../../../common/config/user';
+import { setSheetData } from '../../../common/src/api/sheets';
+import user from '../../../common/src/config/user';
 
 export default {
   name: 'DogForm',

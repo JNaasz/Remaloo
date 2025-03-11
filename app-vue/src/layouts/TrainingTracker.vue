@@ -35,7 +35,7 @@
 <script lang="ts">
 import TrainingItem from '../components/TrainingItem.vue';
 import TrainingForm from '../components/TrainingForm.vue';
-import { getSheetData } from '../../../common/api/sheets';
+import { getSheetData } from '../../../common/src/api/sheets';
 
 export default {
   name: 'TrainingTracker',
